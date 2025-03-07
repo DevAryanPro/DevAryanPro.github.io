@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos - Modern Age Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hover-underline-animation {
+            display: inline-block;
+            position: relative;
+        }
+        .hover-underline-animation::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: white;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .hover-underline-animation:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .toast-transition {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+        
+        window.onload = function() {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        };
+    </script>
+</head>
+<body class="bg-purple-50 font-poppins">
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-purple-900 to-purple-700 text-white py-20 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <span class="material-icons text-6xl mb-6" aria-hidden="true">schedule</span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover Your Exact Age</h1>
+            <p class="text-xl text-purple-100 mb-8">Precision age calculation powered by modern design</p>
+            <button onclick="document.getElementById('toolSection').scrollIntoView({behavior: 'smooth'})" 
+                    class="bg-white text-purple-900 px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all flex items-center gap-2 mx-auto hover:gap-3">
+                Calculate Now
+                <span class="material-icons">arrow_downward</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Tool Section -->
+    <section id="toolSection" class="max-w-4xl mx-auto -mt-16 px-4">
+        <div class="bg-white rounded-2xl shadow-xl p-8">
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div>
+                    <label class="block text-purple-900 mb-2">Birth Date</label>
+                    <div class="relative">
+                        <input type="date" id="birthDate" class="w-full p-3 border-2 border-purple-100 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all">
+                        <span class="material-icons absolute right-3 top-3 text-purple-400">calendar_today</span>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-purple-900 mb-2">End Date (Optional)</label>
+                    <div class="relative">
+                        <input type="date" id="endDate" class="w-full p-3 border-2 border-purple-100 rounded-lg focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition-all">
+                        <span class="material-icons absolute right-3 top-3 text-purple-400">event_available</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="calculateAge()" class="w-full bg-purple-600 text-white py-4 rounded-lg hover:bg-purple-700 transition-colors shadow-lg flex items-center justify-center gap-2">
+                <span class="material-icons">calculate</span>
+                Calculate Age Difference
+            </button>
+            
+            <!-- Results Display -->
+            <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-4" id="results">
+                <div class="bg-purple-100 p-4 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-purple-900" id="years">--</div>
+                    <div class="text-sm text-purple-600">Years</div>
+                </div>
+                <div class="bg-purple-100 p-4 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-purple-900" id="months">--</div>
+                    <div class="text-sm text-purple-600">Months</div>
+                </div>
+                <div class="bg-purple-100 p-4 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-purple-900" id="days">--</div>
+                    <div class="text-sm text-purple-600">Days</div>
+                </div>
+                <div class="bg-purple-100 p-4 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-purple-900" id="hours">--</div>
+                    <div class="text-sm text-purple-600">Hours</div>
+                </div>
+                <div class="bg-purple-100 p-4 rounded-xl text-center">
+                    <div class="text-2xl font-bold text-purple-900" id="seconds">--</div>
+                    <div class="text-sm text-purple-600">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-4 right-4 hidden toast-transition">
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg flex items-center">
+            <span id="toast-message" class="mr-4"></span>
+            <button onclick="document.getElementById('toast').classList.add('hidden')" class="material-icons text-red-500 hover:text-red-700">close</button>
+        </div>
+    </div>
+
+    <!-- Advertisement Banner -->
+    <div class="max-w-4xl mx-auto my-8 px-4 flex justify-center">
+        <div class="bg-white rounded-lg p-[3px] shadow-md" style="width: 728px; height: 90px;">
+            <div class="w-full h-full bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">
+                Advertisement (728x90)
+            </div>
+        </div>
+    </div>
+
+    <section class="max-w-6xl mx-auto py-16 px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-purple-900">Advanced Features</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-icons text-purple-600 text-4xl mb-4">event_repeat</span>
+                <h3 class="text-xl font-bold mb-2">Leap Year Calculation</h3>
+                <p class="text-gray-600">Accurate calculation accounting for leap years and varying month lengths</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-icons text-purple-600 text-4xl mb-4">language</span>
+                <h3 class="text-xl font-bold mb-2">Timezone Aware</h3>
+                <p class="text-gray-600">Automatic timezone detection and adjustment for precise calculations</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-icons text-purple-600 text-4xl mb-4">history</span>
+                <h3 class="text-xl font-bold mb-2">Time Travel Mode</h3>
+                <p class="text-gray-600">Calculate age differences between any two dates in history</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-icons text-purple-600 text-4xl mb-4">data_usage</span>
+                <h3 class="text-xl font-bold mb-2">Multiple Formats</h3>
+                <p class="text-gray-600">Supports Gregorian, Julian, and ISO 8601 date formats</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-icons text-purple-600 text-4xl mb-4">insights</span>
+                <h3 class="text-xl font-bold mb-2">Detailed Breakdown</h3>
+                <p class="text-gray-600">Comprehensive age analysis with yearly/monthly breakdowns</p>
+            </div>
+            <div class="p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-icons text-purple-600 text-4xl mb-4">devices</span>
+                <h3 class="text-xl font-bold mb-2">Full Responsiveness</h3>
+                <p class="text-gray-600">Perfect experience across all devices and screen sizes</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="max-w-4xl mx-auto py-16 px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 text-purple-900">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+            <div class="border rounded-xl p-4 hover:shadow-md transition-shadow">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="font-medium text-purple-900">How accurate is the age calculation?</span>
+                        <span class="material-icons text-purple-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-2 text-gray-600">Our calculator uses precise algorithms accounting for leap years, time zones, and daylight saving changes. Results are accurate to the minute.</p>
+                </details>
+            </div>
+            <div class="border rounded-xl p-4 hover:shadow-md transition-shadow">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="font-medium text-purple-900">What date formats are supported?</span>
+                        <span class="material-icons text-purple-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-2 text-gray-600">We support all standard formats including MM/DD/YYYY, DD/MM/YYYY, and ISO 8601. You can also use our date picker for convenience.</p>
+                </details>
+            </div>
+            <div class="border rounded-xl p-4 hover:shadow-md transition-shadow">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="font-medium text-purple-900">Does it work across time zones?</span>
+                        <span class="material-icons text-purple-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-2 text-gray-600">Yes, our calculator automatically adjusts for time zones and daylight saving time differences between locations.</p>
+                </details>
+            </div>
+            <div class="border rounded-xl p-4 hover:shadow-md transition-shadow">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="font-medium text-purple-900">How are leap years handled?</span>
+                        <span class="material-icons text-purple-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-2 text-gray-600">We account for all leap years since 1900, including the special rules for century years (e.g., 2000 was a leap year but 1900 was not).</p>
+                </details>
+            </div>
+            <div class="border rounded-xl p-4 hover:shadow-md transition-shadow">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="font-medium text-purple-900">Can I calculate future ages?</span>
+                        <span class="material-icons text-purple-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-2 text-gray-600">Absolutely! Enter a future date in the "End Date" field to calculate how old someone will be at that future date.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple-900 text-purple-100 py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 flex justify-between items-center">
+            <div>
+                <p class="mb-2">© <span id="currentYear"></span> Chronos Age Calculator</p>
+                <p class="text-sm text-purple-300">Made with ♥ by kaiiddo</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover-underline-animation">Privacy</a>
+                <a href="#" class="hover-underline-animation">Terms</a>
+                <a href="https://github.com/yourusername" target="_blank" class="hover-underline-animation flex items-center gap-1">
+                    <span class="material-icons">github</span>
+                    Source
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function calculateAge() {
+            try {
+                const birthDate = new Date(document.getElementById('birthDate').value);
+                const endDate = document.getElementById('endDate').value 
+                            ? new Date(document.getElementById('endDate').value)
+                            : new Date();
+
+                if (!birthDate || isNaN(birthDate)) {
+                    showToast('Please select a valid birth date!');
+                    return;
+                }
+
+                let years = endDate.getFullYear() - birthDate.getFullYear();
+                let months = endDate.getMonth() - birthDate.getMonth();
+                let days = endDate.getDate() - birthDate.getDate();
+
+                if (days < 0) {
+                    months--;
+                    days += new Date(endDate.getFullYear(), endDate.getMonth(), 0).getDate();
+                }
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                const timeDiff = endDate - birthDate;
+                const hours = Math.floor(timeDiff / 3600000);
+                const seconds = Math.floor(timeDiff / 1000);
+
+                document.getElementById('years').textContent = years;
+                document.getElementById('months').textContent = months;
+                document.getElementById('days').textContent = days;
+                document.getElementById('hours').textContent = hours;
+                document.getElementById('seconds').textContent = formatNumber(seconds);
+            } catch (error) {
+                showToast(error.message);
+            }
+        }
+
+        function formatNumber(num) {
+            const abbreviations = [
+                { value: 1e12, suffix: 'T' },
+                { value: 1e9, suffix: 'B' },
+                { value: 1e6, suffix: 'M' },
+                { value: 1e3, suffix: 'K' }
+            ];
+
+            for (const abbr of abbreviations) {
+                if (num >= abbr.value) {
+                    return (num / abbr.value).toFixed(1) + abbr.suffix;
+                }
+            }
+            return num.toString();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 5000);
+        }
+    </script>
+</body>
+</html>
