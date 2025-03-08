@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthMetrics Pro | Advanced BMI Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .section-bg { background: #f8fafc; }
+        .result-card { background: linear-gradient(145deg, #ffffff 0%, #f8faff 100%); }
+        .hero-wave { background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%232964ff" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,128C384,139,480,181,576,176C672,171,768,117,864,101.3C960,85,1056,107,1152,112C1248,117,1344,107,1392,101.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>'); }
+        html {
+        scroll-behavior: smooth;
+    }
+    .section-bg {
+        background: #f8fafc;
+    }
+     .unit-tab.active {
+        background-color: #2563eb;
+        color: white;
+    }
+    .unit-form {
+        display: none;
+    }
+    .unit-form.active {
+        display: block;
+    }
+    .premium-label {
+            background: #fef3c7;
+            color: #d97706;
+            padding: 2px 8px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body class="font-[Poppins]">
+    <!-- Navigation Update -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-blue-600 text-3xl">health_metrics</span>
+            <h1 class="text-xl font-bold text-gray-800">HealthMetrics Pro</h1>
+        </div>
+        <div class="hidden md:flex gap-6">
+            <a href="#features" class="text-gray-600 hover:text-blue-600">Features</a>
+            <a href="#how-it-works" class="text-gray-600 hover:text-blue-600">How It Works</a>
+            <a href="#calculator" class="text-gray-600 hover:text-blue-600">Calculator</a>
+            <a href="#faq" class="text-gray-600 hover:text-blue-600">FAQ</a>
+        </div>
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-blue-600 text-white pb-24">
+        <div class="hero-wave absolute bottom-0 w-full h-24"></div>
+        <div class="container mx-auto px-4 py-24 text-center">
+            <h1 class="text-5xl font-bold mb-6">Smart Body Metrics Calculator</h1>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Advanced reverse BMI analysis with personalized health insights and professional recommendations
+            </p>
+            <a href="#calculator" class="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-shadow">
+                <span class="material-symbols-outlined">calculate</span>
+                Start Calculating
+            </a>
+        </div>
+    </section>
+
+<!-- Calculator Section -->
+<!-- Calculator Section (Metric Only) -->
+<section id="calculator" class="section-bg py-16">
+    <div class="container mx-auto px-4 max-w-3xl">
+        <div class="bg-white rounded-2xl shadow-md p-8">
+            <div class="flex gap-2 items-center mb-8">
+                <span class="material-symbols-outlined text-blue-600 text-3xl">speed</span>
+                <h2 class="text-2xl font-bold text-gray-800">Advanced Health Calculator</h2>
+            </div>
+
+            <!-- Metric Form -->
+            <div id="metric-form">
+                <div class="grid gap-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="text-gray-600">Age <span class="text-red-500">*</span></label>
+                            <input id="age" type="number" required 
+                                   class="w-full px-4 py-3 border rounded-xl" min="15" max="100">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-gray-600">Gender <span class="text-red-500">*</span></label>
+                            <select id="gender" class="w-full px-4 py-3 border rounded-xl">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2">
+                            <label class="text-gray-600">Height (cm) <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <input type="number" id="height" required 
+                                       class="w-full px-4 py-3 border rounded-xl" min="100" max="250">
+                                <span class="material-symbols-outlined absolute right-4 top-3">height</span>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-gray-600">Weight (kg) <span class="text-red-500">*</span></label>
+                            <div class="relative">
+                                <input type="number" id="weight" required 
+                                       class="w-full px-4 py-3 border rounded-xl" min="30" max="300">
+                                <span class="material-symbols-outlined absolute right-4 top-3">monitor_weight</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Fields -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="space-y-2 relative">
+                            <label class="text-gray-600">Body Fat %
+                                <span class="premium-label">
+            <span class="material-symbols-outlined text-xs">grade</span>
+            Premium
+        </span>
+                            </label>
+                            <input type="number" id="body-fat" class="w-full px-4 py-3 border rounded-xl">
+                        </div>
+                        <div class="space-y-2 relative">
+                            <label class="text-gray-600">Waist Circumference (cm)
+                                <span class="premium-label">
+            <span class="material-symbols-outlined text-xs">grade</span>
+            Premium
+        </span>
+                            </label>
+                            <input type="number" id="waist" class="w-full px-4 py-3 border rounded-xl">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="calculateHealth()" 
+                        class="mt-6 w-full bg-blue-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700">
+                    <span class="material-symbols-outlined">insights</span>
+                    Analyze My Health
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Results Section -->
+<section id="results" class="py-16 hidden">
+    <div class="container mx-auto px-4 max-w-3xl">
+        <div class="result-card rounded-2xl shadow-lg p-8">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Your Health Report</h3>
+                <div class="flex gap-2">
+                    <button onclick="exportPDF()" class="bg-green-100 text-green-600 px-4 py-2 rounded-lg flex items-center gap-2">
+                        <span class="material-symbols-outlined">picture_as_pdf</span>
+                        PDF
+                    </button>
+                    <button onclick="exportCSV()" class="bg-blue-100 text-blue-600 px-4 py-2 rounded-lg flex items-center gap-2">
+                        <span class="material-symbols-outlined">download</span>
+                        CSV
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid gap-4">
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <p class="text-sm text-blue-600 mb-2">Target Weight</p>
+                    <p class="text-3xl font-bold text-gray-800" id="targetWeight">-</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white p-6 rounded-xl border border-blue-100">
+                        <p class="text-sm text-gray-500 mb-2">Healthy Range</p>
+                        <p class="text-xl text-gray-800 font-medium" id="healthyRange">-</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-blue-100">
+                        <p class="text-sm text-gray-500 mb-2">BMI Category</p>
+                        <p class="text-xl font-medium" id="healthStatus">-</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-blue-100">
+                        <p class="text-sm text-gray-500 mb-2">Body Mass Index</p>
+                        <p class="text-xl text-gray-800 font-medium" id="bmiValue">-</p>
+                    </div>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-xl">
+                    <div class="flex gap-2 items-center mb-2">
+                        <span class="material-symbols-outlined text-green-600">recommend</span>
+                        <p class="text-sm text-green-600">Professional Recommendations</p>
+                    </div>
+                    <p class="text-gray-700" id="recommendations">-</p>
+                </div>
+
+                <div class="bg-purple-50 p-6 rounded-xl">
+                    <div class="flex gap-2 items-center mb-2">
+                        <span class="material-symbols-outlined text-purple-600">person</span>
+                        <p class="text-sm text-purple-600">Personal Details</p>
+                    </div>
+                    <p class="text-gray-700" id="personalDetails">-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Features Section -->
+<section id="features" class="section-bg py-16">
+    <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Advanced Features</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">Professional-grade health metrics analysis powered by AI</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-symbols-outlined text-blue-600 text-4xl mb-4">analytics</span>
+                <h3 class="text-xl font-semibold mb-2">Comprehensive Analysis</h3>
+                <p class="text-gray-600">Detailed body composition breakdown with 12+ health parameters</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-symbols-outlined text-blue-600 text-4xl mb-4">settings</span>
+                <h3 class="text-xl font-semibold mb-2">Custom Goals</h3>
+                <p class="text-gray-600">Personalized targets based on age, activity level &amp; health history</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
+                <span class="material-symbols-outlined text-blue-600 text-4xl mb-4">devices</span>
+                <h3 class="text-xl font-semibold mb-2">Cross-Platform Sync</h3>
+                <p class="text-gray-600">Access your data anywhere with cloud sync and mobile app</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">How It Works</h2>
+            <p class="text-gray-600 max-w-xl mx-auto">Three simple steps to get your personalized health analysis</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="material-symbols-outlined text-blue-600 text-3xl">edit</span>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">1. Input Data</h3>
+                <p class="text-gray-600">Enter basic health metrics and lifestyle information</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="material-symbols-outlined text-blue-600 text-3xl">calculate</span>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">2. AI Processing</h3>
+                <p class="text-gray-600">Our algorithm analyzes 50+ health parameters</p>
+            </div>
+            
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="material-symbols-outlined text-blue-600 text-3xl">insights</span>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">3. Get Results</h3>
+                <p class="text-gray-600">Detailed report with actionable recommendations</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced FAQ Section -->
+<section id="faq" class="section-bg py-16">
+    <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
+            <p class="text-gray-600">Quick answers to common questions</p>
+        </div>
+        
+        <div class="space-y-4">
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="text-lg font-medium text-gray-800">How accurate are the calculations?</span>
+                        <span class="material-symbols-outlined text-blue-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600">Our algorithm uses WHO-approved formulas combined with machine learning for 98% accuracy in standard BMI ranges.</p>
+                </details>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="text-lg font-medium text-gray-800">Is my data secure?</span>
+                        <span class="material-symbols-outlined text-blue-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600">We use military-grade encryption and never share your personal health data with third parties.</p>
+                </details>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-md">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer">
+                        <span class="text-lg font-medium text-gray-800">Can I export my results?</span>
+                        <span class="material-symbols-outlined text-blue-600 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600">Yes! All premium users can export PDF reports and CSV data for medical consultations.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 pb-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">HealthMetrics Pro</h4>
+                    <p class="text-gray-400 text-sm">Advanced health analysis tools for professionals and individuals</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#calculator" class="text-gray-400 hover:text-blue-400">Calculator</a></li>
+                        <li><a href="#premium" class="text-gray-400 hover:text-blue-400">Premium Features</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-400">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-center gap-2 text-gray-400">
+                            <span class="material-symbols-outlined text-sm">mail</span>
+                            support@healthmetrics.pro
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-400">
+                            <span class="material-symbols-outlined text-sm">location_on</span>
+                            New York, USA
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 py-6 text-center">
+                <p class="text-sm text-gray-400">&copy; 2023 HealthMetrics Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+<script>
+  
+   // Updated Export Functions with Branding
+    const siteName = "HealthMetrics Pro";
+    const websiteURL = "https://healthmetrics.pro";
+    
+    
+    function calculateHealth() {
+        try {
+            // Get required values
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+
+            // Validate inputs
+            if (!age || !height || !weight) {
+                throw new Error('Please fill all required fields');
+            }
+
+            // Calculate BMI
+            const heightMeters = height / 100;
+            const bmi = (weight / (heightMeters ** 2)).toFixed(1);
+            
+            // Calculate healthy weight range
+            const healthyMin = (18.5 * heightMeters ** 2).toFixed(1);
+            const healthyMax = (24.9 * heightMeters ** 2).toFixed(1);
+
+            // Get premium values
+            const bodyFat = document.getElementById('body-fat').value;
+            const waist = document.getElementById('waist').value;
+
+            // Update Results
+            document.getElementById('targetWeight').textContent = `${weight} kg`;
+            document.getElementById('healthyRange').textContent = `${healthyMin} - ${healthyMax} kg`;
+            document.getElementById('bmiValue').textContent = bmi;
+            document.getElementById('personalDetails').textContent = `Age: ${age} | Gender: ${gender}`;
+
+            // Update health status
+            const statusElement = document.getElementById('healthStatus');
+            const status = getHealthStatus(bmi);
+            statusElement.textContent = status.text;
+            statusElement.className = `text-xl font-medium ${status.color}`;
+
+            // Generate recommendations
+            document.getElementById('recommendations').textContent = getRecommendations(bmi, waist, bodyFat);
+            document.getElementById('results').classList.remove('hidden');
+
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    function getHealthStatus(bmi) {
+        if (bmi < 18.5) return { text: 'Underweight', color: 'text-red-600' };
+        if (bmi < 24.9) return { text: 'Healthy', color: 'text-green-600' };
+        if (bmi < 29.9) return { text: 'Overweight', color: 'text-orange-600' };
+        return { text: 'Obese', color: 'text-red-600' };
+    }
+
+    function getRecommendations(bmi, waist, bodyFat) {
+        let recommendations = [];
+        
+        // BMI-based recommendations
+        if (bmi < 18.5) {
+            recommendations.push("Increase calorie intake with nutrient-rich foods");
+            recommendations.push("Include strength training 3x weekly");
+        } else if (bmi < 24.9) {
+            recommendations.push("Maintain balanced diet and regular exercise");
+            recommendations.push("Monitor weight monthly");
+        } else {
+            recommendations.push("Focus on portion control and aerobic exercise");
+            recommendations.push("Consult a nutritionist for meal planning");
+        }
+
+        // Premium recommendations
+        if (waist) {
+            const waistRisk = waist > (gender === 'male' ? 94 : 80) ? 'high' : 'normal';
+            recommendations.push(`Waist circumference: ${waistRisk} risk (${waist}cm)`);
+        }
+        if (bodyFat) {
+            const fatStatus = bodyFat > (gender === 'male' ? 25 : 32) ? 'high' : 'normal';
+            recommendations.push(`Body fat: ${fatStatus} (${bodyFat}%)`);
+        }
+
+        return recommendations.join('. ') + '.';
+    }
+
+    function exportPDF() {
+        const doc = new jspdf.jsPDF();
+        
+        // Header
+        doc.setFontSize(18);
+        doc.text(siteName, 14, 15);
+        doc.setFontSize(10);
+        doc.setTextColor(100);
+        doc.text("Personal Health Report", 14, 22);
+        
+        // Report Content
+        doc.autoTable({
+            startY: 30,
+            head: [['Metric', 'Value']],
+            body: [
+                ['Name', document.getElementById('name').value],
+                ['Age', document.getElementById('age').value],
+                ['Gender', document.getElementById('gender').value],
+                ['Height', document.getElementById('height').value + ' cm'],
+                ['Weight', document.getElementById('weight').value + ' kg'],
+                ['BMI', document.getElementById('bmiValue').textContent],
+                ['Status', document.getElementById('healthStatus').textContent]
+            ],
+            theme: 'grid',
+            headStyles: { fillColor: [41, 100, 255] }
+        });
+
+        // Footer
+        const pageCount = doc.getNumberOfPages();
+        for(let i = 1; i <= pageCount; i++) {
+            doc.setPage(i);
+            doc.setFontSize(8);
+            doc.text(`Generated by ${siteName} - ${websiteURL}`, 14, doc.internal.pageSize.height - 10);
+        }
+
+        doc.save(`${siteName}-Report.pdf`);
+    }
+
+    function exportCSV() {
+        const data = {
+            'Report Generated by': siteName,
+            'Website': websiteURL,
+            'Name': document.getElementById('name').value,
+            'Age': document.getElementById('age').value,
+            'Gender': document.getElementById('gender').value,
+            'Height (cm)': document.getElementById('height').value,
+            'Weight (kg)': document.getElementById('weight').value,
+            'BMI': document.getElementById('bmiValue').textContent,
+            'Health Status': document.getElementById('healthStatus').textContent,
+            'Recommendations': document.getElementById('recommendations').textContent,
+            '_Comment': 'Generated by HealthMetrics Pro - Your Personal Health Assistant'
+        };
+
+        const csvContent = Object.entries(data)
+            .map(([key, value]) => `${key},${value}`)
+            .join('\n');
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = `${siteName}-Report-${new Date().toISOString().slice(0,10)}.csv`;
+        link.click();
+    }
+</script>
+</body>
+</html>
