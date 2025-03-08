@@ -120,86 +120,90 @@
     <div class="container mx-auto px-4 flex gap-6 justify-center">
         <!-- Left Ad Container -->
         <div class="hidden lg:block w-[300px] sticky top-4 h-[250px]">
-            <!-- Your ad code here -->
             <div class="bg-gray-100 w-[300px] h-[250px] flex items-center justify-center">
                 Ad Slot 300x250 (Left)
             </div>
         </div>
-            <div class="flex gap-2 items-center mb-8">
-                <span class="material-symbols-outlined text-blue-600 text-3xl">speed</span>
-                <h2 class="text-2xl font-bold text-gray-800">Advanced Health Calculator</h2>
-            </div>
 
-            <!-- Metric Form -->
-            <div id="metric-form">
-                <div class="grid gap-4">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="space-y-2">
-                            <label class="text-gray-600">Age <span class="text-red-500">*</span></label>
-                            <input id="age" type="number" required 
-                                   class="w-full px-4 py-3 border rounded-xl" min="15" max="100">
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-gray-600">Gender <span class="text-red-500">*</span></label>
-                            <select id="gender" class="w-full px-4 py-3 border rounded-xl">
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="space-y-2">
-                            <label class="text-gray-600">Height (cm) <span class="text-red-500">*</span></label>
-                            <div class="relative">
-                                <input type="number" id="height" required 
-                                       class="w-full px-4 py-3 border rounded-xl" min="100" max="250">
-                                <span class="material-symbols-outlined absolute right-4 top-3">height</span>
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <label class="text-gray-600">Weight (kg) <span class="text-red-500">*</span></label>
-                            <div class="relative">
-                                <input type="number" id="weight" required 
-                                       class="w-full px-4 py-3 border rounded-xl" min="30" max="300">
-                                <span class="material-symbols-outlined absolute right-4 top-3">monitor_weight</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Premium Fields -->
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="space-y-2 relative">
-                            <label class="text-gray-600">Body Fat %
-                                <span class="premium-label">
-            <span class="material-symbols-outlined text-xs">grade</span>
-            Premium
-        </span>
-                            </label>
-                            <input type="number" id="body-fat" class="w-full px-4 py-3 border rounded-xl">
-                        </div>
-                        <div class="space-y-2 relative">
-                            <label class="text-gray-600">Waist Circumference (cm)
-                                <span class="premium-label">
-            <span class="material-symbols-outlined text-xs">grade</span>
-            Premium
-        </span>
-                            </label>
-                            <input type="number" id="waist" class="w-full px-4 py-3 border rounded-xl">
-                        </div>
-                    </div>
+        <!-- Main Calculator Content -->
+        <div class="max-w-3xl flex-1">
+            <div class="bg-white rounded-2xl shadow-md p-8">
+                <div class="flex gap-2 items-center mb-8">
+                    <span class="material-symbols-outlined text-blue-600 text-3xl">speed</span>
+                    <h2 class="text-2xl font-bold text-gray-800">Advanced Health Calculator</h2>
                 </div>
 
-                <button onclick="calculateHealth()" 
-                        class="mt-6 w-full bg-blue-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700">
-                    <span class="material-symbols-outlined">insights</span>
-                    Analyze My Health
-                </button>
+                <!-- Metric Form -->
+                <div id="metric-form">
+                    <div class="grid gap-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-gray-600">Age <span class="text-red-500">*</span></label>
+                                <input id="age" type="number" required 
+                                       class="w-full px-4 py-3 border rounded-xl" min="15" max="100">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-gray-600">Gender <span class="text-red-500">*</span></label>
+                                <select id="gender" class="w-full px-4 py-3 border rounded-xl">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-gray-600">Height (cm) <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <input type="number" id="height" required 
+                                           class="w-full px-4 py-3 border rounded-xl" min="100" max="250">
+                                    <span class="material-symbols-outlined absolute right-4 top-3">height</span>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-gray-600">Weight (kg) <span class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <input type="number" id="weight" required 
+                                           class="w-full px-4 py-3 border rounded-xl" min="30" max="300">
+                                    <span class="material-symbols-outlined absolute right-4 top-3">monitor_weight</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Premium Fields -->
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="space-y-2 relative">
+                                <label class="text-gray-600">Body Fat %
+                                    <span class="premium-label">
+                                        <span class="material-symbols-outlined text-xs">grade</span>
+                                        Premium
+                                    </span>
+                                </label>
+                                <input type="number" id="body-fat" class="w-full px-4 py-3 border rounded-xl">
+                            </div>
+                            <div class="space-y-2 relative">
+                                <label class="text-gray-600">Waist Circumference (cm)
+                                    <span class="premium-label">
+                                        <span class="material-symbols-outlined text-xs">grade</span>
+                                        Premium
+                                    </span>
+                                </label>
+                                <input type="number" id="waist" class="w-full px-4 py-3 border rounded-xl">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="calculateHealth()" 
+                            class="mt-6 w-full bg-blue-600 text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-blue-700">
+                        <span class="material-symbols-outlined">insights</span>
+                        Analyze My Health
+                    </button>
+                </div>
             </div>
         </div>
-    <!-- Right Ad Container -->
+
+        <!-- Right Ad Container -->
         <div class="hidden lg:block w-[300px] sticky top-4 h-[250px]">
-            <!-- Your ad code here -->
             <div class="bg-gray-100 w-[300px] h-[250px] flex items-center justify-center">
                 Ad Slot 300x250 (Right)
             </div>
