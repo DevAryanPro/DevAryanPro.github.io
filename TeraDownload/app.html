@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeraDownload - Download Terabox Videos Easily</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@heroicons/react/24/outline/index.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-base-100">
+
+<!-- Navigation -->
+<div class="navbar bg-base-100 border-b border-base-200 px-4 sm:px-8">
+    <div class="navbar-start">
+        <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+            </label>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li><a>Home</a></li>
+                <li><a>Features</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
+            </ul>
+        </div>
+        <a class="btn btn-ghost normal-case text-xl">TeraDownload</a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 gap-2">
+            <li><a>Home</a></li>
+            <li><a>Features</a></li>
+            <li><a>About</a></li>
+            <li><a>Contact</a></li>
+        </ul>
+    </div>
+    <div class="navbar-end gap-2">
+        <a class="btn btn-primary">Contact</a>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center bg-gradient-to-br from-primary/5 to-base-200">
+    <div class="grid grid-cols-1 lg:grid-cols-2 w-full">
+        <!-- Left Content -->
+        <div class="flex items-center p-8 sm:p-12 lg:p-16 xl:p-24">
+            <div class="max-w-2xl space-y-8">
+                <!-- Version Badge -->
+                <div class="badge badge-lg badge-primary/20 text-primary animate-float">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Version 1.0 Released!
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+                    Secure Terabox Video 
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary block">Downloads Made Simple</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="text-lg text-gray-600 mt-6 mb-8">
+                    Download HD videos directly from Terabox with end-to-end encryption and cloud-powered processing.
+                </p>
+
+                <!-- Avatar Group -->
+                <div class="flex items-center gap-4">
+                    <div class="avatar-group -space-x-4">
+                        <div class="avatar">
+                            <div class="w-12">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User avatar"/>
+                            </div>
+                        </div>
+                        <div class="avatar">
+                            <div class="w-12">
+                                <img src="https://randomuser.me/api/portraits/women/75.jpg" alt="User avatar"/>
+                            </div>
+                        </div>
+                        <div class="avatar">
+                            <div class="w-12">
+                                <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="User avatar"/>
+                            </div>
+                        </div>
+                        <div class="avatar placeholder">
+                            <div class="w-12 bg-primary text-base-100">
+                                <span>+5K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500">Trusted by our community</p>
+                </div>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 mt-12">
+                    <button class="btn btn-primary btn-lg hover:scale-[1.02] transition-transform gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        Start Free Download
+                    </button>
+                    <button class="btn btn-outline btn-lg gap-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        How It Works
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="flex items-center justify-center p-8 lg:p-12 xl:p-16">
+            <div class="relative w-full max-w-2xl aspect-square"> <!-- Square container -->
+                <img src="file:///C:/Users/USER/Downloads/cloud-system-file-download-database-protection-concept-data-center-file-management-flat-illustration-vector-landing-page-template_128772-1808%20(1).png" 
+                     alt="Cloud Storage Illustration"
+                     class="w-full h-full object-contain object-center rounded-2xl shadow-xl" />
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-16 px-4 sm:px-8 bg-base-200">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-12">Why Choose TeraDownload?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Universal Access Card -->
+            <div class="card bg-base-100 shadow-sm hover:shadow-md transition-all relative">
+                <div class="absolute top-2 right-2 badge badge-primary badge-outline">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Global Limit
+                </div>
+                <div class="card-body items-center text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-lg mb-2">Fair Usage Policy</h3>
+                    <p class="text-sm text-gray-500">All users enjoy equal access with <span class="font-semibold text-primary">100 free downloads/month</span> to ensure best service for everyone</p>
+                </div>
+            </div>
+
+            <!-- Premium Quality Card -->
+            <div class="card bg-base-100 shadow-sm hover:shadow-md transition-all relative">
+                <div class="absolute top-2 right-2 badge badge-success">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Recommended
+                </div>
+                <div class="card-body items-center text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-lg mb-2">Premium Quality</h3>
+                    <p class="text-sm text-gray-500">Download in crystal-clear resolutions up to 4K with original audio quality preserved</p>
+                    <div class="mt-2 flex gap-1.5 justify-center">
+                        <span class="text-xs badge badge-ghost">1080p</span>
+                        <span class="text-xs badge badge-ghost">2K</span>
+                        <span class="text-xs badge badge-ghost">4K</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instant Processing Card -->
+            <div class="card bg-base-100 shadow-sm hover:shadow-md transition-all relative">
+                <div class="absolute top-2 right-2 badge badge-secondary">
+                    <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    NEW
+                </div>
+                <div class="card-body items-center text-center p-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                        </svg>
+                    </div>
+                    <h3 class="card-title text-lg mb-2">Instant Processing</h3>
+                    <p class="text-sm text-gray-500">Get download links instantly with our cloud-powered processing system</p>
+                    <div class="mt-2 flex gap-1.5 justify-center">
+                        <span class="text-xs badge badge-ghost">MP4</span>
+                        <span class="text-xs badge badge-ghost">WEBM</span>
+                        <span class="text-xs badge badge-ghost">MKV</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Tool Section -->
+<section class="py-16 px-4 sm:px-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Input Section -->
+        <div class="text-center">
+            <div class="join w-full max-w-xl mb-2">
+                <input type="text" 
+                       id="videoUrl"
+                       placeholder="Paste Terabox video link here..." 
+                       class="join-item input input-bordered w-full focus:outline-none" />
+                <button id="downloadBtn" class="join-item btn btn-primary">
+                    Download Now
+                </button>
+            </div>
+            <p class="text-sm text-gray-500 text-center mb-6">
+                Supported formats: MP4, WEBM, MKV • Max file size: ∞ GB
+            </p>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="hidden text-center mt-6">
+            <div class="loading loading-lg"></div>
+            <p class="mt-2 text-gray-600">Fetching video details...</p>
+        </div>
+
+        <!-- Results Card -->
+        <div id="results" class="hidden">
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body p-4">
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <!-- Thumbnail -->
+                        <figure class="w-full md:w-64 shrink-0">
+                            <img id="videoThumb" 
+                                 alt="Video thumbnail"
+                                 class="rounded-xl w-full aspect-video object-cover" />
+                        </figure>
+                        
+                        <!-- Video Details -->
+                        <div class="flex-1 w-full space-y-3">
+                            <h2 class="card-title text-xl mb-1" id="videoTitle"></h2>
+                            <div class="flex gap-2 flex-wrap">
+                                <div class="badge badge-outline py-2">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8v12m0 0l2.16-3.197a9 9 0 0113.65.014L20 20m-4.19 0H4"/>
+                                    </svg>
+                                    <span id="videoSize"></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Download Actions -->
+                            <div class="join w-full">
+                                <input type="text" 
+                                       class="join-item input input-bordered w-full" 
+                                       id="downloadLink" 
+                                       readonly />
+                                <a id="downloadAnchor" class="join-item btn btn-primary">
+                                    Download
+                                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error Toast -->
+        <div id="errorToast" class="toast toast-top toast-center hidden">
+            <div class="alert alert-error py-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                <span id="errorMessage"></span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="py-24 px-4 sm:px-8 bg-base-200">
+    <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-6">Trusted by Creators Worldwide</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Join thousands of satisfied users transforming their workflow</p>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Testimonial Card 1 -->
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                <div class="card-body">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="avatar">
+                            <div class="w-12 rounded-full">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" />
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Sarah Johnson</h3>
+                            <p class="text-sm text-gray-500">Content Creator</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 text-primary/20">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z"/>
+                            </svg>
+                        </div>
+                        <p class="text-lg italic mb-6">"This tool saved me hours of work! The fastest Terabox downloader I've ever used."</p>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                        </svg>
+                        <span class="font-bold">5.0 Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 2 -->
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                <div class="card-body">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="avatar">
+                            <div class="w-12 rounded-full">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" />
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Michael Chen</h3>
+                            <p class="text-sm text-gray-500">Video Editor</p>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 text-primary/20">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z"/>
+                            </svg>
+                        </div>
+                        <p class="text-lg italic mb-6">"Impressive download speeds and the quality preservation is unmatched!"</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                        </svg>
+                        <span class="font-bold">5.0 Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Card 3 -->
+            <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                <div class="card-body">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="avatar-group -space-x-4">
+                            <div class="avatar">
+                                <div class="w-12">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" />
+                                </div>
+                            </div>
+                            <div class="avatar">
+                                <div class="w-12">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold">Team PixelFlow</h3>
+                            <p class="text-sm text-gray-500">Creative Agency</p>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 text-primary/20">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z"/>
+                            </svg>
+                        </div>
+                        <p class="text-lg italic mb-6">"Essential tool for our video production workflow. Highly recommended!"</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
+                        </svg>
+                        <span class="font-bold">5.0 Rating</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-24 px-4 sm:px-8 bg-gradient-to-br from-base-100 to-base-200">
+    <div class="max-w-7xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div class="badge badge-lg badge-primary mb-4 animate-float">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                Common Questions
+            </div>
+            <h2 class="text-4xl font-bold mb-6">Frequently Asked Questions</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Find quick answers to common queries about our Terabox download service</p>
+        </div>
+
+        <!-- FAQ Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- FAQ Item 1 -->
+            <div class="collapse collapse-plus bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                <input type="checkbox" />
+                <div class="collapse-title text-xl font-medium">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        How long do downloads take?
+                    </div>
+                </div>
+                <div class="collapse-content"> 
+                    <p class="text-gray-600">Most downloads complete in under 30 seconds, depending on video size and your internet connection speed. We use cloud acceleration to ensure fastest possible transfers.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="collapse collapse-plus bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                <input type="checkbox" />
+                <div class="collapse-title text-xl font-medium">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        Is this service free to use?
+                    </div>
+                </div>
+                <div class="collapse-content">
+                    <p class="text-gray-600">Yes! We offer free downloads with our basic plan. For power users, we offer premium features through affordable subscription plans.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="collapse collapse-plus bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                <input type="checkbox" />
+                <div class="collapse-title text-xl font-medium">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        Is my data secure?
+                    </div>
+                </div>
+                <div class="collapse-content">
+                    <p class="text-gray-600">We use military-grade encryption for all transfers. Your downloads are private and we never store any personal information.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="collapse collapse-plus bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                <input type="checkbox" />
+                <div class="collapse-title text-xl font-medium">
+                    <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        What video formats are supported?
+                    </div>
+                </div>
+                <div class="collapse-content">
+                    <p class="text-gray-600">We support all major formats including MP4, WEBM, MKV, and MOV. You can select your preferred format before downloading.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16">
+            <p class="text-lg text-gray-600 mb-6">Still have questions? We're here to help!</p>
+            <button class="btn btn-primary btn-lg gap-2">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                Contact Support
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer p-10 bg-gradient-to-r from-base-200 to-base-300 text-base-content">
+    <div class="max-w-7xl mx-auto w-full px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <!-- Brand Info -->
+            <div class="space-y-4 text-center md:text-left">
+                <div class="flex items-center gap-2 justify-center md:justify-start">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    <div>
+                        <span class="text-xl font-bold block">TeraDownload</span>
+                        <span class="text-xs opacity-60">v1.0.0</span>
+                    </div>
+                </div>
+                <p class="text-sm opacity-75 max-w-xs mx-auto md:mx-0">
+                    High-speed Terabox video download solution with secure cloud processing and instant conversion.
+                </p>
+            </div>
+
+            <!-- Legal Links -->
+            <div class="space-y-2 text-center md:text-left">
+                <h6 class="footer-title opacity-100">Legal</h6> 
+                <ul class="flex flex-col gap-1.5">
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">Privacy Policy</a></li>
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">Terms of Service</a></li>
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">Cookie Policy</a></li>
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">DMCA</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div class="space-y-2 text-center md:text-left">
+                <h6 class="footer-title">Resources</h6> 
+                <ul class="flex flex-col gap-1.5">
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">Documentation</a></li>
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">API Reference</a></li>
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">Status</a></li>
+                    <li><a class="link link-hover opacity-75 hover:opacity-100">Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter & Social -->
+            <div class="space-y-4 text-center md:text-left">
+                <h6 class="footer-title">Stay Updated</h6>
+                <div class="flex flex-col gap-4">
+                    <div class="join w-full">
+                        <input type="email" 
+                               placeholder="Your email address" 
+                               class="join-item input input-bordered w-full" />
+                        <button class="join-item btn btn-primary">
+                            Subscribe
+                        </button>
+                    </div>
+                    <div class="flex gap-3 justify-center md:justify-start">
+                        <a class="btn btn-circle btn-ghost hover:bg-base-100 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a class="btn btn-circle btn-ghost hover:bg-base-100 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a class="btn btn-circle btn-ghost hover:bg-base-100 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                        </a>
+                        <a class="btn btn-circle btn-ghost hover:bg-base-100 p-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright & Made With -->
+        <div class="border-t border-base-content/10 mt-8 pt-6 text-center w-full space-y-2">
+            <p class="text-sm opacity-60 mx-auto">
+                © 2024 TeraDownload. All rights reserved. v1.0.0
+            </p>
+            <div class="text-sm opacity-60 flex items-center justify-center">
+                <span>Made with</span>
+                <span class="mx-1.5 text-red-500 animate-pulse">❤️</span> 
+                <span>by Kaiiddo</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('downloadBtn').addEventListener('click', async () => {
+        const urlInput = document.getElementById('videoUrl');
+        const resultsSection = document.getElementById('results');
+        const loadingSection = document.getElementById('loading');
+        const errorToast = document.getElementById('errorToast');
+        const errorMessage = document.getElementById('errorMessage');
+        const btn = document.getElementById('downloadBtn');
+
+        // Validate URL format
+        const validUrlPattern = /^https:\/\/www\.1024tera\.com\/sharing\/link\?surl=/i;
+        if (!validUrlPattern.test(urlInput.value)) {
+            errorMessage.textContent = 'Invalid Terabox URL format';
+            errorToast.classList.remove('hidden');
+            setTimeout(() => errorToast.classList.add('hidden'), 4000);
+            return;
+        }
+
+        // Show loading state
+        btn.innerHTML = 'Processing...';
+        btn.setAttribute('disabled', true);
+        loadingSection.classList.remove('hidden');
+        resultsSection.classList.add('hidden');
+
+        try {
+            // Encode URL for API
+            const encodedUrl = encodeURIComponent(urlInput.value);
+            const apiUrl = `https://terabox-downloader-hyper.p.rapidapi.com/api?key=RapidAPI-1903-fast&url=${encodedUrl}`;
+
+            const response = await fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': '22cb974be3msh3e404624f69c19ep1fb3a9jsnc6937f98ad1e',
+                    'x-rapidapi-host': 'terabox-downloader-hyper.p.rapidapi.com'
+                }
+            });
+
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            
+            const data = await response.json();
+            
+            if (!data.link) throw new Error('No download link found in response');
+
+            // Update results
+            document.getElementById('videoTitle').textContent = data.file_name;
+            document.getElementById('videoSize').textContent = `${(data.sizebytes / 1024 / 1024).toFixed(1)} MB`;
+            document.getElementById('videoThumb').src = data.thumb;
+            document.getElementById('downloadLink').value = data.link;
+            document.getElementById('downloadAnchor').href = data.link;
+
+            // Show results
+            resultsSection.classList.remove('hidden');
+
+        } catch (error) {
+            console.error('Error:', error);
+            errorMessage.textContent = error.message || 'Failed to process request';
+            errorToast.classList.remove('hidden');
+            setTimeout(() => errorToast.classList.add('hidden'), 4000);
+        } finally {
+            loadingSection.classList.add('hidden');
+            btn.innerHTML = 'Download Now';
+            btn.removeAttribute('disabled');
+        }
+    });
+</script>
+
+</body>
+</html>
